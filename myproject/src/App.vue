@@ -1,31 +1,6 @@
 <template>
   <div class="container">
-    <header>
-      <div class="header__ name-logo">
-        <img src="./img/Logo.png">
-        <div class="name-logo__name-description">
-          <div class="name-description__name"><h4>NATFASH</h4></div>
-          <div class="name-description__description">
-            National clothes<br>
-            in elite style
-          </div>
-        </div>
-      </div>
-      <div class="header__navigation">
-        <div class="navigation__btn T-shirts">T-shirts</div>
-        <div class="navigation__btn Sweatshirts">Sweatshirts</div>
-        <div class="navigation__btn Vests">Vests</div>
-        <div class="navigation__btn Pants">Pants</div>
-        <img class="navigation__btn images" src="./img/ThreeDots.png">
-      </div>
-      <div class="header__ phoneNumber"><h4>+7 7172 264 55 55</h4></div>
-      <div class="header__rightPart">
-        <div class="rightPart__ basket-price">
-          <img src="./img/shopping-cart.png">
-          <div class="basket-price__price">0</div>
-        </div>
-      </div>
-    </header>
+      <header-main />
     <div class="mainPart">
       <div class="mainPart__upper">
         <div class="upper__description-section">
@@ -33,17 +8,17 @@
           <div class="description-section__ plain-text">We represent the modern culture <br>of national clothes in sportswear.</div>
           <div class="description-section__ btn">Start shopping</div>
         </div>
-        <img class="upper__img-right" src="./img/homepage-img.png">
+        <img class="upper__img-right" src="./components&img/img/homepage-img.png">
         <div class="upper__img-history">
-          <img src="./img/ОurStory.png">
+          <img src="./components&img/img/ОurStory.png">
           <div class="img-history__ name"><h4>Оur story</h4></div>
         </div>
         <div class="upper__img-catalog">
-          <img src="./img/ViewCatalog.png">
+          <img src="./components&img/img/ViewCatalog.png">
           <div class="img-history__ name"><h4>View catalog</h4></div>
         </div>
         <div class="upper__connect">
-          <img src="./img/JoinInCommunity.png">
+          <img src="./components&img/img/JoinInCommunity.png">
           <div class="img-history__ name"><h4>Join in<br>community</h4></div>
         </div>
       </div>
@@ -53,7 +28,7 @@
           <div class="blocks__FarLeft">
             <div class="FarLeft__img-signNew">
               <div class="img-signNew__ sign-new">New</div>
-              <img class="img-signNew__img" src="./img/Rectangle11.png">
+              <img class="img-signNew__img" src="./components&img/img/Rectangle11.png">
             </div>
             <div class="FarLeft__ name-sentence">Costume Set “TOKYO 2020”</div>
             <div class="FarLeft__ price-sentence">$87.00</div>
@@ -61,7 +36,7 @@
           <div class="blocks__Left">
             <div class="Left__img-signNew">
               <div class="img-signNew__ sign-new">New</div>
-              <img class="img-signNew__img" src="./img/Rectangle12.png">
+              <img class="img-signNew__img" src="./components&img/img/Rectangle12.png">
             </div>
             <div class="Left__ name-sentence">Sweatshirt with “History” patch</div>
             <div class="Left__ price-sentence">$38.00</div>
@@ -69,7 +44,7 @@
           <div class="blocks__Right">
             <div class="Right__img-signNew">
               <div class="img-signNew__ sign-new">New</div>
-              <img class="img-signNew__img" src="./img/Rectangle13.png">
+              <img class="img-signNew__img" src="./components&img/img/Rectangle13.png">
             </div>
             <div class="Right__ name-sentence">T-shirt with “History” patch</div>
             <div class="Right__ price-sentence">$21.00</div> 
@@ -77,7 +52,7 @@
           <div class="blocks__FarRight">
             <div class="FarRight__img-signNew">
               <div class="img-signNew__ sign-new">New</div>
-              <img class="img-signNew__img" src="./img/Rectangle14.png">
+              <img class="img-signNew__img" src="./components&img/img/Rectangle14.png">
             </div>
             <div class="FarRight__ name-sentence">Shirt with “History” patch</div>
             <div class="FarRight__ price-sentence">$21.00</div>
@@ -87,41 +62,27 @@
       <div class="mainPart__lower">
         <div class="lower__name-section"><h4>Follow us on social networks!</h4></div>
         <div class="lower__pictures">
-          <img src="./img/Rectangle12(1).png" class="pictures__ FarLeft">
-          <img src="./img/Rectangle13(1).png" class="pictures__ Left">
-          <img src="./img/Rectangle14(1).png" class="pictures__ Right">
-          <img src="./img/Rectangle15.png" class="pictures__ FarRight">
+          <img src="./components&img/img/Rectangle12(1).png" class="pictures__ FarLeft">
+          <img src="./components&img/img/Rectangle13(1).png" class="pictures__ Left">
+          <img src="./components&img/img/Rectangle14(1).png" class="pictures__ Right">
+          <img src="./components&img/img/Rectangle15.png" class="pictures__ FarRight">
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer__nameLogo-navigation">
-        <div class="footer__name-logo">
-        <img src="./img/Logo.png">
-        <div class="name-logo__name-description">
-          <div class="name-description__name">NATFASH</div>
-          <div class="name-description__description">
-            National clothes<br>
-            in elite style
-          </div>
-        </div>
-        </div>
-        <div class="footer__navigation">
-          <div class="navigation__ Hoodies">Hoodies</div>
-          <div class="navigation__ T-shirts">T-shirts</div>
-          <div class="navigation__ Vests">Vests</div>
-          <div class="navigation__ footer-Pants">Pants</div>
-        </div>
-      </div>
-      <div class="footer__learn-information">
-        <div class="learn-information__ learn"><h3>LEARN</h3></div>
-        <div class="learn-information__ store-policy">Store policy</div>
-        <div class="learn-information__ DeliveryAndReturns">Delivery and returns</div>
-        <div class="learn-information__ PaymentMethods">Payment Methods</div>
-      </div>
-    </footer>
+    <footer-main/>
   </div>
 </template>
+
+<script>
+import HeaderMain from "@/components&img/HeaderMain.vue";
+import FooterMain from "@/components&img/FooterMain.vue"
+
+export default {
+  components: {
+    HeaderMain, FooterMain,
+  },
+}
+</script>
 
 <style>
 *,*::before,*::after {box-sizing: border-box;}
@@ -176,6 +137,7 @@ body {
 
 .navigation__btn {
   padding-left: 46px;
+  width: 130px;
 }
 
 .name-logo {
@@ -211,6 +173,19 @@ body {
   padding-bottom: 21px;
   padding-left: 67px;
   padding-right: 67px;
+}
+.btn:hover, .upper__img-history img:hover, .upper__img-catalog img:hover, .upper__connect img:hover {
+  box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.61);
+  transition: 0.5s;
+}
+
+.blocks__FarLeft:hover, .blocks__Left:hover, .blocks__Right:hover, .blocks__FarRight:hover {
+  box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.185);
+  transition: 0.5s;
+}
+
+.navigation__btn:hover, .navigation__:hover, .learn-information__:hover {
+  font-weight: 600;
 }
 
 .name {
@@ -281,6 +256,7 @@ footer {
   color: white;
   text-align: center;
   margin-top: 32px;
+  width: 160px;
 }
 .learn {
   margin-top: 58px;
