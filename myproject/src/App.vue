@@ -184,7 +184,7 @@ body {
   transition: 0.5s;
 }
 
-.navigation__btn:hover, .navigation__:hover, .learn-information__:hover {
+.navigation__btn:hover, .navigation__:hover, .learn-information__:hover, .login-registration__:hover {
   font-weight: 600;
 }
 
@@ -201,7 +201,7 @@ body {
   font-size: 27px;
 }
 
-.NewArrivals-part__blocks, .footer__name-logo {
+.NewArrivals-part__blocks, .footer__name-logo, .login-registration {
   display: flex;
 }
 
@@ -265,5 +265,16 @@ footer {
 
 .footer__name-logo {
   margin-top: 33px;
+}
+
+.login-registration__ {
+  margin-left: 10px;
+}
+
+.registration {
+  width: 85px;
+}
+.login {
+  width: 40px;
 }
 </style>
