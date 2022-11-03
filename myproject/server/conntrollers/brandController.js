@@ -3,7 +3,7 @@ class BrandController {
 
     }
 
-    async login(req, res) {
+    async getAll(req, res) {
 
     }
 }
