@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 const express = require('express')
 const sequelize = require('./db')
 const models = require('./models/models')
@@ -9,6 +9,7 @@ const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
 
 const PORT = process.env.PORT || 5000
+const test = process.env.SECRET_KEY
 
 const app = express();
 app.use(cors());
@@ -21,8 +22,10 @@ app.use('/api', router);
 app.use(errorHandler)
 
 app.get('/', (req, res) => {
-    res.status(200).json({message: "АДЕЛЬ ДАУН!!!!"})
+    res.status(200).json({message: 'тест'})
 })
+
+console.log(process.env)
 
 const start = async () => {
     try {
