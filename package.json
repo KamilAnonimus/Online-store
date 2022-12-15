@@ -18,9 +18,9 @@
     "sequelize": "^6.25.3",
     "tedious": "^11.0.8",
     "uuid": "^9.0.0",
-    "vue": "^3.2.13",
+    "vue": "^3.2.45",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.3",
+    "vue-router": "^4.1.6",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
