@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 *,*::before,*::after {box-sizing: border-box;}
 ul[class],ol[class] {
   padding: 0;
@@ -28,6 +28,10 @@ body {
   display: flex;
   justify-content: center;
 }
+a {
+  text-decoration: none;
+  color: black;
+  }
 #app {width: 100%;}
 </style>
 

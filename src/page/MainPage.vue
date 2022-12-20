@@ -85,7 +85,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   
   .container {
     max-width: 1170px;
@@ -131,10 +131,6 @@
     transition: 0.5s;
   }
   
-  .navigation__btn:hover, .navigation__:hover, .learn-information__:hover, .login-registration__:hover {
-    font-weight: 600;
-  }
-  
   .name {
     color: white;
     position: relative;
@@ -146,10 +142,6 @@
   .NewArrivals-part__name-block {
     text-align: center;
     font-size: 27px;
-  }
-  
-  .NewArrivals-part__blocks, .footer__name-logo, .login-registration {
-    display: flex;
   }
   
   .img-signNew__img {
@@ -189,39 +181,8 @@
     display: flex;
     justify-content: space-around;
   }
-  
-  .navigation__ {
-    color: white;
-    margin-top: 32px;
-    text-align: center;
-  }
-  .footer-Pants {
-    margin-bottom: 57px;
-  }
-  
-  .learn-information__ {
-    color: white;
-    text-align: center;
-    margin-top: 32px;
-    width: 160px;
-  }
-  .learn {
-    margin-top: 58px;
-    font-size: 16px;
-  }
-  
-  .footer__name-logo {
-    margin-top: 33px;
-  }
-  
-  .login-registration__ {
-    margin-left: 10px;
-  }
-  
-  .registration {
-    width: 85px;
-  }
-  .login {
-    width: 40px;
+
+  .NewArrivals-part__blocks {
+    display: flex;
   }
   </style>

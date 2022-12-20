@@ -33,6 +33,53 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .navigation__ {
+    color: white;
+    margin-top: 32px;
+    text-align: center;
+  }
+  .footer-Pants {
+    margin-bottom: 57px;
+  }
 
+  .learn-information__ {
+    color: white;
+    text-align: center;
+    margin-top: 32px;
+    width: 160px;
+  }
+  .learn {
+    margin-top: 58px;
+    font-size: 16px;
+  }
+
+  .footer__name-logo {
+    margin-top: 33px;
+  }
+  
+  .navigation__:hover, .learn-information__:hover {
+    font-weight: 600;
+  }
+
+  .name-logo__name-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 13px;
+  }
+
+  .name-description__description {
+    font-size: 11px;
+    width: 132px;
+  }
+  .name-description__name {
+    color: #E2B64A;
+    width: 65px;
+    height: 16px;
+    font-size: 13px;
+  }
+  .footer__name-logo {
+    display: flex;
+  }
 </style>

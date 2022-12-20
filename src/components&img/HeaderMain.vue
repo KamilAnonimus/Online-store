@@ -20,9 +20,7 @@
       <img class="navigation__btnimages" src="./img/ThreeDots.png">
     </div>
     <div class="header__ login-registration">
-      <RouterLink to="/Login&Registration"><div class="login-registration__ login">Login</div></RouterLink>
-      <div class="login-registration__ separator">|</div>
-      <div class="login-registration__ registration">Registration</div>
+      <RouterLink to="/Login&Registration"><div class="login-registration__ login">Login | Registration</div></RouterLink>
     </div>
     <div class="header__rightPart">
       <div class="rightPart__ basket-price">
@@ -40,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .navigation__btn {
     padding-left: 46px;
     width: 110px;
@@ -81,5 +79,21 @@ export default {
 
   .name__h4 {
     margin: 0;
+  }
+  
+  .NewArrivals-part__blocks, .footer__name-logo, .login-registration {
+    display: flex;
+  }
+
+  .navigation__btn:hover, .login-registration__:hover {
+    font-weight: 600;
+  }
+  
+  .login {
+    width: 170px;
+  }
+
+  .login-registration__ {
+    margin-left: 10px;
   }
 </style>
