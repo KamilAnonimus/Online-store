@@ -15,17 +15,20 @@
             </div>
         </div>
         <div class="main-part-window-input-data">
-            <input type="search" placeholder="YourName or email" class="main-part-window-input-data__ inputLogin" id="textInput1"
+            <input type="search" placeholder="YourName" class="main-part-window-input-data__ inputLogin" id="YourNameOrEmail"
                                                                  :class="{'inputLogin-selected':selectedRegistration}">
-            <input type="search" placeholder="YourName" class="main-part-window-input-data__ inputLoginForRegistration" id="textInput2"
-                                                                 :class="{'inputLoginForRegistration-selected':selectedLogin}">
-            <input type="password" placeholder="YourPassword" class="main-part-window-input-data__ inputPassword" id="textInput3">
-            <input type="search" placeholder="YourEmail" class="main-part-window-input-data__ inputEmail" id="textInput4"
+            <input type="search"  placeholder="YourName"  class="main-part-window-input-data__ inputLoginForRegistration" id="YourName"
+                                                          :class="{'inputLoginForRegistration-selected':selectedLogin}">
+            <input type="password" placeholder="YourPassword" class="main-part-window-input-data__ inputPassword" id="YourPassword">
+            <input type="search" placeholder="YourEmail" class="main-part-window-input-data__ inputEmail" id="YourEmail"
                                                          :class="{'inputEmail-selected':selectedRegistration}">
         </div>
         <div class="footer-window">
             <div class="footer-window__mistakes"></div>
-            <div class="footer-window__buttom" v-on:click="cleansingInputs">Log in / To come in</div>
+            <div class="footer-window__buttom" 
+                v-on:click="auth"
+                >Log in / To come in
+            </div>
             <div class="footer-window__question">
                 <div class="question__startQuestion">Are you</div>
                 <div class="question__EndQuestion"><a v-on:click="changesSelectedRegistration">registered</a>?</div>
@@ -35,6 +38,8 @@
 </template>
 
 <script>
+import {login, registration} from "../http/userAPI"
+
 export default {
     data() {
         return {
@@ -58,10 +63,29 @@ export default {
             this.cleansingInputs()
         },
         cleansingInputs() {
-            document.getElementById("textInput1").value = "";
-            document.getElementById("textInput2").value = "";
-            document.getElementById("textInput3").value = "";
-            document.getElementById("textInput4").value = "";
+            document.getElementById("YourNameOrEmail").value = "";
+            document.getElementById("YourName").value = "";
+            document.getElementById("YourPassword").value = "";
+            document.getElementById("YourEmail").value = "";
+        },
+        auth() {
+
+                if (this.selectedRegistration) {
+                    let loginForAuth = document.getElementById("YourName").value
+                    let passwordForAuth = document.getElementById("YourPassword").value
+                    let emailForAuth = document.getElementById("YourEmail").value
+
+                    let email = loginForAuth
+                    let password = passwordForAuth
+
+                    const response = registration(email, password)
+                    console.log(response)
+                } else {
+                    let loginOrEmailForEntrance = document.getElementById("YourNameOrEmail").value
+                    let passwordForEntrance = document.getElementById("YourPassword").value
+                }
+            this.cleansingInputs()
+            
         }
     }
 }
@@ -132,7 +156,7 @@ export default {
         color: #999595;
     }
 
-    .inputEmail, .inputLogin-selected, .footer-window__question  {
+    .inputEmail, .inputLogin-selected, .footer-window__question, .inputLoginForRegistration-selected  {
         display: none;
     }
     .inputEmail-selected{
