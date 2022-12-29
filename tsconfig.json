@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/main.ts", "src/shims-vue.d.ts", "src/router/router.ts"  ],
+, "src/main.ts", "src/shims-vue.d.ts", "src/router/router.ts", "src/Vuex store/sharedVariableStorage.js"  ],
   "exclude": [
     "node_modules"
   ]

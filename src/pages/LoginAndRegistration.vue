@@ -24,7 +24,6 @@
                                                          :class="{'inputEmail-selected':selectedRegistration}">
         </div>
         <div class="footer-window">
-            <div class="footer-window__mistakes"></div>
             <div class="footer-window__buttom" 
                 v-on:click="auth"
                 >Log in / To come in
@@ -39,6 +38,7 @@
 
 <script>
 import {login, registration} from "../http/userAPI"
+import router from '../router/router'
 
 export default {
     data() {
@@ -47,7 +47,13 @@ export default {
             selectedRegistration: false
         }
     },
+    
+
+    
     methods: {
+        saveInfoAboutUser() {
+            this.$store.state.userInfo = user
+        },
         changesSelectedLogin() {
             if(this.selectedLogin === false) {
                 this.selectedRegistration = false
@@ -68,8 +74,9 @@ export default {
             document.getElementById("YourPassword").value = "";
             document.getElementById("YourEmail").value = "";
         },
-        auth() {
-
+        async auth () {
+            try {
+                let data;
                 if (this.selectedRegistration) {
                     let loginForAuth = document.getElementById("YourName").value
                     let passwordForAuth = document.getElementById("YourPassword").value
@@ -78,14 +85,22 @@ export default {
                     let email = loginForAuth
                     let password = passwordForAuth
 
-                    const response = registration(email, password)
-                    console.log(response)
+                    data = registration(email, password)
                 } else {
                     let loginOrEmailForEntrance = document.getElementById("YourNameOrEmail").value
                     let passwordForEntrance = document.getElementById("YourPassword").value
+
+                    let email = loginOrEmailForEntrance
+                    let password = passwordForEntrance
+
+                    data = login(email, password)
+                    this.cleansingInputs()
                 }
-            this.cleansingInputs()
-            
+            this.saveInfoAboutUser(user)
+            router.push(MainPage)
+            } catch(e) {
+                alert(e.response.data.message)
+            }      
         }
     }
 }
