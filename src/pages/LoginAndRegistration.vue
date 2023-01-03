@@ -15,13 +15,13 @@
             </div>
         </div>
         <div class="main-part-window-input-data">
-            <input type="search" placeholder="YourName" class="main-part-window-input-data__ inputLogin" id="YourNameOrEmail"
-                                                                 :class="{'inputLogin-selected':selectedRegistration}">
-            <input type="search"  placeholder="YourName"  class="main-part-window-input-data__ inputLoginForRegistration" id="YourName"
-                                                          :class="{'inputLoginForRegistration-selected':selectedLogin}">
+            <input type="text" placeholder="YourName" class="main-part-window-input-data__ inputLogin" id="YourNameOrEmail"
+                                                      :class="{'inputLogin-selected':selectedRegistration}">
+            <input type="text" placeholder="YourName" class="main-part-window-input-data__ inputLoginForRegistration" id="YourName"
+                                                      :class="{'inputLoginForRegistration-selected':selectedLogin}">
             <input type="password" placeholder="YourPassword" class="main-part-window-input-data__ inputPassword" id="YourPassword">
-            <input type="search" placeholder="YourEmail" class="main-part-window-input-data__ inputEmail" id="YourEmail"
-                                                         :class="{'inputEmail-selected':selectedRegistration}">
+            <input type="text" placeholder="YourEmail" class="main-part-window-input-data__ inputEmail" id="YourEmail"
+                                                       :class="{'inputEmail-selected':selectedRegistration}">
         </div>
         <div class="footer-window">
             <div class="footer-window__buttom" 
@@ -38,21 +38,21 @@
 
 <script>
 import {login, registration} from "../http/userAPI"
-import router from '../router/router'
+import router from "../router/router"
 
 export default {
     data() {
         return {
             selectedLogin: true,
-            selectedRegistration: false
+            selectedRegistration: false,
         }
     },
-    
 
-    
     methods: {
-        saveInfoAboutUser() {
+        saveInfoAboutUser(user) {
             this.$store.state.userInfo = user
+            this.$store.state.authorizedUser = true
+            this.$store.state.visibilityRoomUser = true
         },
         changesSelectedLogin() {
             if(this.selectedLogin === false) {
@@ -78,26 +78,21 @@ export default {
             try {
                 let data;
                 if (this.selectedRegistration) {
-                    let loginForAuth = document.getElementById("YourName").value
-                    let passwordForAuth = document.getElementById("YourPassword").value
                     let emailForAuth = document.getElementById("YourEmail").value
 
-                    let email = loginForAuth
-                    let password = passwordForAuth
+                    let email = document.getElementById("YourName").value
+                    let password = document.getElementById("YourPassword").value
 
-                    data = registration(email, password)
+                    data = await registration(email, password)
                 } else {
-                    let loginOrEmailForEntrance = document.getElementById("YourNameOrEmail").value
-                    let passwordForEntrance = document.getElementById("YourPassword").value
+                    let email = document.getElementById("YourNameOrEmail").value
+                    let password = document.getElementById("YourPassword").value
 
-                    let email = loginOrEmailForEntrance
-                    let password = passwordForEntrance
-
-                    data = login(email, password)
+                    data = await login(email, password)
                     this.cleansingInputs()
                 }
-            this.saveInfoAboutUser(user)
-            router.push(MainPage)
+            this.saveInfoAboutUser(data)
+            router.push('/')  
             } catch(e) {
                 alert(e.response.data.message)
             }      
@@ -152,12 +147,6 @@ export default {
     }
     .footer-window__buttom:hover{
         opacity: 60%;
-    }
-
-    .footer-window__mistakes {
-        padding-top: 20px;
-        color: red;
-        font-size: 16px;
     }
 
     .footer-window {

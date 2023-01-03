@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve2": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "dev": "nodemon ./server/node.js"
+    "dev1": "nodemon ./server/node.js"
   },
   "dependencies": {
     "@nestjs/config": "^2.2.0",

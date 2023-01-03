@@ -20,7 +20,9 @@
       <img class="navigation__btnimages" src="./img/ThreeDots.png">
     </div>
     <div class="header__ login-registration">
-      <RouterLink to="/Login&Registration"><div class="login-registration__ login">Login | Registration</div></RouterLink>
+      <RouterLink to="/Login&Registration"><div class="login-registration__ login"
+                                                :class="{'login-registration__ authorized':authorized}">Login | Registration</div></RouterLink>
+    <div class="login-registration__ uservisibilityFalse">{{this.$store.state.userInfo.email}}</div>
     </div>
     <div class="header__rightPart">
       <div class="rightPart__ basket-price">
@@ -34,7 +36,12 @@
 
 <script>
 export default {
-  
+  data() {
+    return {
+      authorized: this.$store.state.authorizedUser,
+      visibilityRoomUser: this.$store.state.visibilityRoomUser,
+    }
+  },
 }
 </script>
 
@@ -91,6 +98,10 @@ export default {
   
   .login {
     width: 170px;
+  }
+
+  .authorized {
+    display: none;
   }
 
   .login-registration__ {
