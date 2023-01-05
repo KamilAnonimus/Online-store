@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <header-main />
+  <div class="container">
+      <header-main />
       <div class="mainPart">
         <div class="mainPart__upper">
           <div class="upper__description-section">
@@ -69,23 +69,24 @@
           </div>
         </div>
       </div>
-      <footer-main/>
-    </div>
-  </template>
+    <footer-main/>
+  </div>
+</template>
   
-  <script>
+<script>
   import HeaderMain from "@/components&img/HeaderMain.vue";
-  import FooterMain from "@/components&img/FooterMain.vue"
+  import FooterMain from "@/components&img/FooterMain.vue";
   
   
   export default {
     components: {
-      HeaderMain, FooterMain,
+    HeaderMain,
+    FooterMain,
     },
   }
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   
   .container {
     max-width: 1170px;
@@ -185,4 +186,4 @@
   .NewArrivals-part__blocks {
     display: flex;
   }
-  </style>
+</style>

@@ -1,14 +1,32 @@
 <template>
-  <div class="app">
+  <div class="app"
+       :class="{'appLoanding':this.$store.state.visibilityApp}">
     <RouterView>
       
     </RouterView>
+    
   </div>
+  <LoandingVue/>
 </template>
 
 <script>
-export default {
+import LoandingVue from '@/components&img/Loanding.vue';
+import { check } from './http/userAPI';
+import jwt_decode from "jwt-decode";
 
+export default {
+  beforeCreate() {
+    check().finally(() => {
+      this.$store.state.visibilityLoader = true
+      this.$store.state.visibilityApp = false
+      this.$store.state.userInfo = jwt_decode(localStorage.getItem('token'))
+      this.$store.state.authorizedUser = true
+    })
+  },
+
+  components: {
+    LoandingVue,
+  },
 }
 </script>
 
@@ -33,5 +51,9 @@ a {
   color: black;
   }
 #app {width: 100%;}
+
+.appLoanding {
+  display: none;
+}
 </style>
 

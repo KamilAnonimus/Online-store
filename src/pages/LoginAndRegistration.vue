@@ -49,8 +49,8 @@ export default {
     },
 
     methods: {
-        saveInfoAboutUser(user) {
-            this.$store.state.userInfo = user
+        saveInfoAboutUser(data) {
+            this.$store.state.userInfo = data
             this.$store.state.authorizedUser = true
             this.$store.state.visibilityRoomUser = true
         },

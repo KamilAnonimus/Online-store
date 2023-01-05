@@ -6,6 +6,8 @@ const store = createStore({
       userInfo: [],
       authorizedUser: false,
       visibilityRoomUser: false,
+      visibilityLoader: false,
+      visibilityApp: true,
     }
   }
 })
