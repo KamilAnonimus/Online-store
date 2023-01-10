@@ -77,7 +77,6 @@
   import HeaderMain from "@/components&img/HeaderMain.vue";
   import FooterMain from "@/components&img/FooterMain.vue";
   
-  
   export default {
     components: {
     HeaderMain,

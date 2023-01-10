@@ -22,7 +22,10 @@
     <div class="header__ login-registration">
       <RouterLink to="/Login&Registration"><div class="login-registration__ login"
                                                 :class="{'login-registration__ authorized':this.$store.state.authorizedUser}">Login | Registration</div></RouterLink>
-    <div class="login-registration__ uservisibilityFalse">{{this.$store.state.userInfo.email}}</div>
+    <div class="login-registration__ uservisibilityFalse"
+         :class="{'login-registration__ authorized':!this.$store.state.authorizedUser}">{{this.$store.state.userInfo.email}}</div>
+    <div class="login-registration__ uservisibilityFalseExit" v-on:click="exitAccount"
+         :class="{'login-registration__ authorized':!this.$store.state.authorizedUser}">Выйти</div>
     </div>
     <div class="header__rightPart">
       <div class="rightPart__ basket-price">
@@ -37,6 +40,14 @@
 <script>
 export default {
 
+  methods: {
+    exitAccount() {
+      this.$store.state.userInfo = []
+      this.$store.state.authorizedUser = false
+      this.$store.state.visibilityRoomUser= false
+      localStorage.clear();
+    }
+  }
 }
 </script>
 
@@ -85,7 +96,7 @@ export default {
   
   .NewArrivals-part__blocks, .footer__name-logo, .login-registration {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .navigation__btn:hover, .login-registration__:hover {
@@ -104,7 +115,7 @@ export default {
     margin-left: 10px;
   }
 
-  .uservisibilityFalse {
+  .uservisibilityFalse, .uservisibilityFalseExit {
     width: 100px;
   }
 </style>
