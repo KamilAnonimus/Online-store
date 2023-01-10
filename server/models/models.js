@@ -12,11 +12,11 @@ const Basket = sequelize.define('basket', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
-const BasketDevice = sequelize.define('basket_device',{
+const BasketClothes = sequelize.define('basket_clothes',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
-const Device = sequelize.define('device', {
+const Clothes = sequelize.define('clothes', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull:false},
     price: {type: DataTypes.INTEGER, allowNull: false},
@@ -39,7 +39,7 @@ const Rating = sequelize.define('rating',{
     rate: {type: DataTypes.INTEGER, allowNull: false},
 })
 
-const DeviceInfo = sequelize.define('device_info',{
+const ClothesInfo = sequelize.define('clothes_info',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: {type: DataTypes.STRING, allowNull: false},
     descripttion: {type: DataTypes.STRING, allowNull: false},
@@ -55,23 +55,23 @@ Basket.belongsTo(User)
 User.hasMany(Rating)
 Rating.belongsTo(User)
 
-Basket.hasMany(BasketDevice)
-BasketDevice.belongsTo(Basket)
+Basket.hasMany(BasketClothes)
+BasketClothes.belongsTo(Basket)
 
-Type.hasMany(Device)
-Device.belongsTo(Type)
+Type.hasMany(Clothes)
+Clothes.belongsTo(Type)
 
-Brand.hasMany(Device)
-Device.belongsTo(Brand)
+Brand.hasMany(Clothes)
+Clothes.belongsTo(Brand)
 
-Device.hasMany(Rating)
-Rating.belongsTo(Device)
+Clothes.hasMany(Rating)
+Rating.belongsTo(Clothes)
 
-Device.hasMany(BasketDevice)
-BasketDevice.belongsTo(Device)
+Clothes.hasMany(BasketClothes)
+BasketClothes.belongsTo(Clothes)
 
-Device.hasMany(DeviceInfo, {as: 'info'});
-DeviceInfo.belongsTo(Device)
+Clothes.hasMany(ClothesInfo, {as: 'info'});
+ClothesInfo.belongsTo(Clothes)
 
 Type.belongsToMany(Brand, {through: TypeBrand })
 Brand.belongsToMany(Type, {through: TypeBrand })
@@ -79,11 +79,11 @@ Brand.belongsToMany(Type, {through: TypeBrand })
 module.exports = {
     User, 
     Basket,
-    BasketDevice,
-    Device,
+    BasketClothes,
+    Clothes,
     Type,
     Brand,
     Rating,
     TypeBrand,
-    DeviceInfo
+    ClothesInfo
 }

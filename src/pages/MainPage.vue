@@ -9,15 +9,15 @@
             <div class="description-section__ btn">Start shopping</div>
           </div>
           <img class="upper__img-right" src="../components&img/img/homepage-img.png">
-          <div class="upper__img-history">
+          <div class="upper__ img-history">
             <img src="../components&img/img/ОurStory.png">
             <div class="img-history__ name"><h4>Оur story</h4></div>
           </div>
-          <div class="upper__img-catalog">
+          <div class="upper__ img-catalog">
             <img src="../components&img/img/ViewCatalog.png">
             <div class="img-history__ name"><h4>View catalog</h4></div>
           </div>
-          <div class="upper__connect">
+          <div class="upper__ connect">
             <img src="../components&img/img/JoinInCommunity.png">
             <div class="img-history__ name"><h4>Join in<br>community</h4></div>
           </div>
@@ -121,7 +121,7 @@
     padding-left: 67px;
     padding-right: 67px;
   }
-  .btn:hover, .upper__img-history img:hover, .upper__img-catalog img:hover, .upper__connect img:hover {
+  .btn:hover, .upper__:hover {
     box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.61);
     transition: 0.5s;
   }
@@ -184,5 +184,10 @@
 
   .NewArrivals-part__blocks {
     display: flex;
+  }
+
+  .upper__ {
+    height: 270px;
+    margin-bottom: 60px;
   }
 </style>

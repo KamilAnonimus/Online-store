@@ -1,23 +1,38 @@
 <template>
   <header>
-    <div class="header__ name-logo">
-      <img src="./img/Logo.png">
-      <div class="name-logo__name-description">
-        <div class="name-description__name">
-          <h4 class="name__h4">NATFASH</h4>
-        </div>
-        <div class="name-description__description">
-          National clothes<br>
-          in elite style
+    <RouterLink to="/">
+      <div class="header__ name-logo">
+        <img src="./img/Logo.png">
+        <div class="name-logo__name-description">
+          <div class="name-description__name">
+            <h4 class="name__h4">NATFASH</h4>
+          </div>
+          <div class="name-description__description">
+            National clothes<br>
+            in elite style
+          </div>
         </div>
       </div>
-    </div>
+    </RouterLink>
     <div class="header__navigation">
-      <div class="navigation__btn T-shirts">T-shirts</div>
-      <div class="navigation__btn Sweatshirts">Sweatshirts</div>
-      <div class="navigation__btn Vests">Vests</div>
-      <div class="navigation__btn Pants">Pants</div>
-      <img class="navigation__btnimages" src="./img/ThreeDots.png">
+      <div class="navigation__btn oneType">{{this.$store.state.clothestype[0].name}}</div>
+      <div class="navigation__btn twoType">{{this.$store.state.clothestype[1].name}}</div>
+      <div class="navigation__btn threeType">{{this.$store.state.clothestype[2].name}}</div>
+      <div class="navigation__btn fourthType">{{this.$store.state.clothestype[3].name}}</div>
+      <div class="navigation__btnOtherTypesOfClothing">      
+        <div class="btnOtherTypesOfClothing ThreesPoints" @mouseover="visibleOthersTypeClothes">
+          <div class="threesPoints_ one"></div>
+          <div class="threesPoints_ two"></div>
+          <div class="threesPoints_ three"></div>
+        </div>
+        <div class="btnOtherTypesOfClothing_typesNameClothes"
+             :class="{'visible':activeVisibelOthersTypeClothes}" @mouseleave="visibleOthersTypeClothes">
+          <div class="typesNameClothes_visible"></div>
+          <div class="typesNameClothes_ fifthType">{{this.$store.state.clothestype[4].name}}</div>
+          <div class="typesNameClothes_ sixthType">{{this.$store.state.clothestype[5].name}}</div>
+          <div class="typesNameClothes_ sevenType">{{this.$store.state.clothestype[6].name}}</div>
+        </div>
+    </div>
     </div>
     <div class="header__ login-registration">
       <RouterLink to="/Login&Registration"><div class="login-registration__ login"
@@ -39,6 +54,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      activeVisibelOthersTypeClothes: false,
+    }
+  },
 
   methods: {
     exitAccount() {
@@ -46,6 +66,9 @@ export default {
       this.$store.state.authorizedUser = false
       this.$store.state.visibilityRoomUser= false
       localStorage.clear();
+    },
+    visibleOthersTypeClothes() {
+      this.activeVisibelOthersTypeClothes = !this.activeVisibelOthersTypeClothes; 
     }
   }
 }
@@ -54,7 +77,7 @@ export default {
 <style scoped>
   .navigation__btn {
     padding-left: 46px;
-    width: 110px;
+    width: 100px;
   }
 
   .name-description__name {
@@ -94,9 +117,12 @@ export default {
     margin: 0;
   }
   
-  .NewArrivals-part__blocks, .footer__name-logo, .login-registration {
+  .NewArrivals-part__blocks, .footer__name-logo, .login-registration, .navigation__btn {
     display: flex;
     flex-direction: row;
+    align-items: center;
+
+    min-height: 20px;
   }
 
   .navigation__btn:hover, .login-registration__:hover {
@@ -117,5 +143,67 @@ export default {
 
   .uservisibilityFalse, .uservisibilityFalseExit {
     width: 100px;
+  }
+
+  .threesPoints_ {
+    background-color: black;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    z-index: 99;
+  }
+
+  .two, .three {
+    margin-left: 5px;
+  }
+
+  .btnOtherTypesOfClothing {
+    width: 50px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 67px;
+  }
+  
+  .navigation__btnOtherTypesOfClothing {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    top: 20px;
+  }
+
+  .btnOtherTypesOfClothing_typesNameClothes {
+    margin-left: 50px;
+    position: absolute;
+    top: 20px;
+    display: none;
+  }
+
+  .typesNameClothes_ {
+    padding: 20px;
+    background-color: white;
+    border-radius: 1px;
+    border-bottom: 1px solid rgb(223, 221, 221);
+  }
+  
+  .typesNameClothes_visible {
+    padding: 20px;
+    background-color: white;
+  }
+
+  .typesNameClothes_:hover {
+    background-color: rgb(238, 238, 238);
+    transition: 0.5s;
+  }
+
+  .visible {
+    display: block;
+    opacity: 0;
+    animation: ani 0.5s forwards;
+  }
+  @keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
   }
 </style>

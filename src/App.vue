@@ -13,6 +13,7 @@
 import LoandingVue from '@/components&img/Loanding.vue';
 import { check } from './http/userAPI';
 import jwt_decode from "jwt-decode";
+import {fetchTypes} from './http/clothesAPI'
 
 export default {
   beforeCreate() {
@@ -22,6 +23,7 @@ export default {
       this.$store.state.userInfo = jwt_decode(localStorage.getItem('token'))
       this.$store.state.authorizedUser = true
     })
+    fetchTypes().then(data => this.$store.state.clothestype = data)
   },
 
   components: {

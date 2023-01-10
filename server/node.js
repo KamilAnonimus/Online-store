@@ -24,8 +24,6 @@ app.get('/', (req, res) => {
     res.status(200).json({message: 'тест'})
 })
 
-console.log(process.env)
-
 const start = async () => {
     try {
         await sequelize.authenticate()
